@@ -38,7 +38,7 @@ class Website3DDemo {
 
     this._scene = new THREE.Scene();
 
-    let light = new THREE.DirectionalLight(0xFFFFFF, 1.0);
+    let light = new THREE.DirectionalLight(0xFFFFFF);
     light.position.set(20, 100, 10);
     light.target.position.set(0, 0, 0);
     light.castShadow = true;
@@ -105,8 +105,10 @@ class Website3DDemo {
   }
 
   OnScroll(pos) {
+    const a = 15;
+    const b = -15;
     const amount = Math.min(pos / 500.0, 1.0);
-    this._camera.position.set(-15 + amount * (15 - -15), 15, 20);
+    this._camera.position.set(a + amount * (b - a), 15, 20);
     this._controls.update();
   }
 
